@@ -1,0 +1,28 @@
+language: node_js
+
+sudo: false
+
+dist: trusty
+
+node_js:
+  - '10'
+
+addons:
+  sonarcloud:
+    organization: "myerffoeg"
+    token:
+      secure: "M/rhzAav8u2N6OIn4+w7MAFNwTk+Rn1iHI72IBgzSGgvR+bk99uQs/8VYcAyF+uz6H2kH+zCRfz4sz62lUenl2gFn7zigygSLsn2+nnnZika02bg/FjqA6OLkGlBmSVrpTH2K/YKZ2BaAVVutD5R2g/+0PHzzB5zWJYxffhwgEpaG1ye8a2y6BSW9QBLvXCzlzZbv8NTftHiK6zqm5zLeWDX/RVn5EPohYLAiu1w9ep7m3nGfZ2cVebb7cuD1f+Wx8D2fPl+0UU8cT2A+SKwyJM9Xs9d8Av/BsF6r5zjmY/SetIk78KQhGc3HSc3nT65oxMnmhLgQs2sYSzmDwRTArsfNON88d8+xATEdyWhEZ9hQRXT+r7DC8LbIfFzyecLSf9to0c22RTQLw9a+U20a9Bz0VDNb4hd+iHxYzMOL57SguDktmUO/BGeCm140NUKa18JAMQCEdf/0rt/qXs9ry2m+OH+My9clOIslOZ+InDrMl2TxHCfI5Kk+JSOT9tBegV6l28HZI2RKPAblIORxWzLLH4A9sQ9d4Gm0FqPWsut+wO/wdJ49n3i1MCFaKFp89PmFAy2Mu9TB1X/onTTZILPlEJ+RX4J+SD4F+Upzt4oFmDKpW+m5Hbse/PbB4Vf3ZpklBnyZVZqNRmXDtbMJJ2KmY5Q3si69RGFLQ510NM="
+
+script:
+  - sonar-scanner
+
+deploy:
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file: MasterOfTheGrid.user.js
+  skip_cleanup: true
+  on:
+    tags: true
+
+git:
+  depth: 1
