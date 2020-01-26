@@ -9,7 +9,7 @@
 A small cheat for [MasterOfTheGrid](http://masterofthegrid.sparklinlabs.com/) use the ² key to load it.
 
 ## Installation
-Use a userscript manager like [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) on Google Chrome or [Greasemonkey](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Greasemonkey.svg/220px-Greasemonkey.svg.png) on Firefox then install [MasterOfTheGrid.user.js](https://github.com/myerffoeg/masterofthegrid/releases/download/1.0.1/MasterOfTheGrid.user.js).
+Use a userscript manager like [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) on Google Chrome or [Greasemonkey](https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Greasemonkey.svg/220px-Greasemonkey.svg.png) on Firefox then install [MasterOfTheGrid.user.js](https://github.com/myerffoeg/masterofthegrid/releases/download/1.0.0/MasterOfTheGrid.user.js).
 
 ## License
 MasterOfTheGrid is under a [MIT License](LICENSE.md).
