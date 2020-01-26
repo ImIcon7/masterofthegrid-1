@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        MasterOfTheGrid
 // @namespace   myerffoeg
-// @version     1.0.0
+// @version     1.0.1
 // @author      Geoffrey Migliacci
 // @description A MasterOfTheGrid simple cheat.
 // @homepage    https://github.com/yerffeog/masterofthegrid
