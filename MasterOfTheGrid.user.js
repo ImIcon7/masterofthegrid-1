@@ -33,23 +33,25 @@ $(document).on('keypress', (e) => {
         if (e.which === 178) {
             const challenges = localStorage.getItem('MasterOfTheGrid') === null ? {} : JSON.parse(localStorage.getItem('MasterOfTheGrid'));
 
-            channel.socket.on('challengeInProgress', () => {
-                if (!challenges[channel.data.challenge.category]) {
-                    challenges[channel.data.challenge.category] = {};
-                }
+            channel.socket.on('setState', (setState) => {
+                if (setState === 'challengeInProgress') {
+                    if (!challenges[channel.data.challenge.category]) {
+                        challenges[channel.data.challenge.category] = {};
+                    }
 
-                if (challenges[channel.data.challenge.category][channel.data.challenge.id]) {
-                    if (['chooseMultiple', 'sort'].indexOf(channel.data.challenge.challengeType) !== -1) {
-                        channel.socket.emit('setAnswer', challenges[channel.data.challenge.category][channel.data.challenge.id].answer.reduce((a, c) => {
-                            a.push(channel.data.challenge.choices.indexOf(c));
-                            return a;
-                        }, []));
-                    } else if (channel.data.challenge.challengeType === 'chooseOne') {
-                        channel.socket.emit('setAnswer', channel.data.challenge.choices.indexOf(challenges[channel.data.challenge.category][channel.data.challenge.id].answer));
-                    } else if (['trueOrFalse', 'estimate'].indexOf(channel.data.challenge.challengeType) !== -1) {
-                        channel.socket.emit('setAnswer', challenges[channel.data.challenge.category][channel.data.challenge.id].answer);
-                    } else if (channel.data.challenge.challengeType === 'map') {
-                        channel.socket.emit('setAnswer', channel.data.challenge.choices.findIndex((a) => challenges[channel.data.challenge.category][channel.data.challenge.id].answer.x === a.x && challenges[channel.data.challenge.category][channel.data.challenge.id].answer.y === a.y));
+                    if (challenges[channel.data.challenge.category][channel.data.challenge.id]) {
+                        if (['chooseMultiple', 'sort'].indexOf(channel.data.challenge.challengeType) !== -1) {
+                            channel.socket.emit('setAnswer', challenges[channel.data.challenge.category][channel.data.challenge.id].answer.reduce((a, c) => {
+                                a.push(channel.data.challenge.choices.indexOf(c));
+                                return a;
+                            }, []));
+                        } else if (channel.data.challenge.challengeType === 'chooseOne') {
+                            channel.socket.emit('setAnswer', channel.data.challenge.choices.indexOf(challenges[channel.data.challenge.category][channel.data.challenge.id].answer));
+                        } else if (['trueOrFalse', 'estimate'].indexOf(channel.data.challenge.challengeType) !== -1) {
+                            channel.socket.emit('setAnswer', challenges[channel.data.challenge.category][channel.data.challenge.id].answer);
+                        } else if (channel.data.challenge.challengeType === 'map') {
+                            channel.socket.emit('setAnswer', channel.data.challenge.choices.findIndex((a) => challenges[channel.data.challenge.category][channel.data.challenge.id].answer.x === a.x && challenges[channel.data.challenge.category][channel.data.challenge.id].answer.y === a.y));
+                        }
                     }
                 }
             });
