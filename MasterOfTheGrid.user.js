@@ -10,7 +10,6 @@
 // @supportURL  https://github.com/myerffoeg/masterofthegrid/issues
 // @match       http://masterofthegrid.sparklinlabs.com/play/*
 // @require     https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js
-// @require     https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js
 // @run-at      document-idle
 // @grant       none
 // @noframes
