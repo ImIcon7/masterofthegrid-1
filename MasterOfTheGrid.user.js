@@ -53,7 +53,7 @@ $(document).on('keypress', (e) => {
                                 a.push(channel.data.challenge.choices.indexOf(c));
                                 return a;
                             }, []));
-                            // @todo show answers for sort
+                            // @todo answers sorted on ui
                         } else if (channel.data.challenge.challengeType === 'chooseOne') {
                             const answer = channel.data.challenge.choices.indexOf(challenges[channel.data.challenge.category][channel.data.challenge.id].answer);
                             $(`button[data-value='${answer}']:first`).parent().addClass('Selected').parent().addClass('Answered');
