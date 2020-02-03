@@ -1,18 +1,20 @@
 // ==UserScript==
 // @name        MasterOfTheGrid
 // @namespace   myerffoeg
-// @version     1.0.3
+// @version     1.0.4
 // @author      Geoffrey Migliacci
 // @description A MasterOfTheGrid simple cheat.
 // @homepage    https://github.com/myerffoeg/masterofthegrid
 // @icon        https://raw.githubusercontent.com/myerffoeg/masterofthegrid/master/MasterOfTheGrid.png
-// @updateURL   https://raw.githubusercontent.com/myerffoeg/masterofthegrid/master/MasterOfTheGrid.user.js
+// @updateURL   https://github.com/myerffoeg/masterofthegrid/releases/latest/download/MasterOfTheGrid.user.js
+// @downloadURL https://github.com/myerffoeg/masterofthegrid/releases/latest/download/MasterOfTheGrid.user.js
 // @supportURL  https://github.com/myerffoeg/masterofthegrid/issues
 // @match       http://masterofthegrid.sparklinlabs.com/play/*
 // @require     https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js
 // @run-at      document-idle
 // @grant       none
 // @noframes
+// @nocompat    Chrome
 // ==/UserScript==
 
 if (localStorage.getItem('MasterOfTheGrid') === null) {
