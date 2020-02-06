@@ -6,7 +6,7 @@
 [![Github](https://img.shields.io/github/followers/myerffoeg.svg?label=Follow&style=social)](https://github.com/myerffoeg)
 
 ## Description
-A small cheat for [MasterOfTheGrid](http://masterofthegrid.sparklinlabs.com/) use the <kbd>SHIFT</kbd> key to load it. To answer automatically to a question, press the <kbd>SHIFT</kbd> key.
+A small cheat for [MasterOfTheGrid](http://masterofthegrid.sparklinlabs.com/) use the <kbd>LEFT SHIFT</kbd> key to load it. To answer automatically to a question, press the <kbd>LEFT SHIFT</kbd> key.
 
 ## Installation
 Use a userscript manager like [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) on Google Chrome then install [MasterOfTheGrid.user.js](https://github.com/myerffoeg/masterofthegrid/releases/latest/download/MasterOfTheGrid.user.js).
