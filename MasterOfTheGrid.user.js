@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        MasterOfTheGrid
 // @namespace   myerffoeg
-// @version     1.0.6
+// @version     1.0.7
 // @author      Geoffrey Migliacci
 // @description A MasterOfTheGrid simple cheat.
 // @homepage    https://github.com/myerffoeg/masterofthegrid
@@ -32,7 +32,7 @@ $.ajax({
     }
 });
 
-GM_addStyle(GM_getResourceText("animate.css"));
+GM_addStyle(GM_getResourceText('animate.css'));
 
 $(document).ready(() => {
     $(document).keydown((ev) => {
@@ -125,33 +125,31 @@ $(document).ready(() => {
                 challenges[channel.data.challenge.category] = {};
             }
 
-            if (!challenges[channel.data.challenge.category][channel.data.challenge.id]) {
-                if (['chooseMultiple', 'sort'].indexOf(channel.data.challenge.challengeType) !== -1) {
-                    challenges[channel.data.challenge.category][channel.data.challenge.id] = {
-                        challengeType: channel.data.challenge.challengeType,
-                        answer: challengeAnswer.reduce((a, c) => {
-                            a.push(channel.data.challenge.choices[c]);
-                            return a;
-                        }, [])
-                    };
-                } else if (['map', 'chooseOne'].indexOf(channel.data.challenge.challengeType) !== -1) {
-                    challenges[channel.data.challenge.category][channel.data.challenge.id] = {
-                        challengeType: channel.data.challenge.challengeType,
-                        answer: channel.data.challenge.choices[challengeAnswer]
-                    };
-                } else if (channel.data.challenge.challengeType === 'estimate') {
-                    challenges[channel.data.challenge.category][channel.data.challenge.id] = {
-                        challengeType: channel.data.challenge.challengeType,
-                        answer: challengeAnswer.minimumValue === challengeAnswer.maximumValue ? challengeAnswer.minimumValue : Math.floor((challengeAnswer.minimumValue + challengeAnswer.maximumValue) / 2)
-                    };
-                } else if (channel.data.challenge.challengeType === 'trueOrFalse') {
-                    challenges[channel.data.challenge.category][channel.data.challenge.id] = {
-                        challengeType: channel.data.challenge.challengeType,
-                        answer: challengeAnswer
-                    };
-                }
-                localStorage.setItem('MasterOfTheGrid', JSON.stringify(challenges));
+            if (['chooseMultiple', 'sort'].indexOf(channel.data.challenge.challengeType) !== -1) {
+                challenges[channel.data.challenge.category][channel.data.challenge.id] = {
+                    challengeType: channel.data.challenge.challengeType,
+                    answer: challengeAnswer.reduce((a, c) => {
+                        a.push(channel.data.challenge.choices[c]);
+                        return a;
+                    }, [])
+                };
+            } else if (['map', 'chooseOne'].indexOf(channel.data.challenge.challengeType) !== -1) {
+                challenges[channel.data.challenge.category][channel.data.challenge.id] = {
+                    challengeType: channel.data.challenge.challengeType,
+                    answer: channel.data.challenge.choices[challengeAnswer]
+                };
+            } else if (channel.data.challenge.challengeType === 'estimate') {
+                challenges[channel.data.challenge.category][channel.data.challenge.id] = {
+                    challengeType: channel.data.challenge.challengeType,
+                    answer: challengeAnswer.minimumValue === challengeAnswer.maximumValue ? challengeAnswer.minimumValue : Math.floor((challengeAnswer.minimumValue + challengeAnswer.maximumValue) / 2)
+                };
+            } else if (channel.data.challenge.challengeType === 'trueOrFalse') {
+                challenges[channel.data.challenge.category][channel.data.challenge.id] = {
+                    challengeType: channel.data.challenge.challengeType,
+                    answer: challengeAnswer
+                };
             }
+            localStorage.setItem('MasterOfTheGrid', JSON.stringify(challenges));
         });
     });
 });
