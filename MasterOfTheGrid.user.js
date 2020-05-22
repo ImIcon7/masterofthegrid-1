@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        MasterOfTheGrid
 // @namespace   myerffoeg
-// @version     1.0.8
+// @version     1.0.9
 // @author      Geoffrey Migliacci
 // @description A MasterOfTheGrid simple cheat.
 // @homepage    https://github.com/myerffoeg/masterofthegrid
@@ -21,18 +21,18 @@
 
 const challenges = localStorage.getItem('MasterOfTheGrid') === null ? {} : JSON.parse(localStorage.getItem('MasterOfTheGrid'));
 
-$.ajax({
-    method: 'GET',
-    url: `https://raw.githubusercontent.com/myerffoeg/masterofthegrid/master/MasterOfTheGrid.user.json`,
-    cache: true,
-    dataType: 'json',
-    success: (references) => {
-        $.extend(true, challenges, references);
-        localStorage.setItem('MasterOfTheGrid', JSON.stringify(challenges));
+$(document).ready(() => {
+    $.ajax({
+        method: 'GET',
+        url: `https://raw.githubusercontent.com/myerffoeg/masterofthegrid/master/MasterOfTheGrid.user.json`,
+        cache: true,
+        dataType: 'json',
+        success: (references) => {
+            $.extend(true, challenges, references);
+            localStorage.setItem('MasterOfTheGrid', JSON.stringify(challenges));
 
-        GM_addStyle(GM_getResourceText('animate.css'));
+            GM_addStyle(GM_getResourceText('animate.css'));
 
-        $(document).ready(() => {
             $(document).keydown((ev) => {
                 if (!channel.data) {
                     return;
@@ -150,6 +150,6 @@ $.ajax({
                     localStorage.setItem('MasterOfTheGrid', JSON.stringify(challenges));
                 });
             });
-        });
-    }
+        }
+    });
 });
